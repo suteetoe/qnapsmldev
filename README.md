@@ -1,12 +1,12 @@
 # SMLDEV
 
-[Go](#Go)
-[Service](#service)
+- [Go](#Go)
+- [Service](#service)
 
 ## Go 
 
-Build Docker จาก Code
-Build แล้วเอาไป Run ใน Linux
+- Build Docker จาก Code
+- Build แล้วเอาไป Run ใน Linux
 
 ### Build Docker จาก Code
 
