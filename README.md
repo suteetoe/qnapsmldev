@@ -1,7 +1,7 @@
 # SMLDEV
 
 - [Go](#Go)
-- [PostgresSQL](#PostgreSQL)
+- [PostgresSQL](#postgresql)
 - [Service](#service)
 
 ## Go 
