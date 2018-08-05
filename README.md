@@ -94,7 +94,7 @@ services:
 
 Env | Description
 --- | ---
-BACKUPHOUR | เวลาที่จะทำการสำรองข้อมูล 0-23) 
+BACKUPHOUR | เวลาที่จะทำการสำรองข้อมูล (0-23) 
 BACKUPMINUTE | ระบุนาที
 PGHOST | ชื่อ Server เก็บข้อมูล (postgresql)
 PGPORT | Port
