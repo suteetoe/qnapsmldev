@@ -5,11 +5,11 @@
 
 ## Go 
 
-- [Build Docker จาก Code] (#Build Docker จาก Code)
+- [Build Docker จาก Code][2]
 - [Build แล้วเอาไป Run ใน Linux][1]
 
-
-[1]:https://github.com/suteetoe/qnapsmldev#build-แล้วเอาไป-run-ใน-linux
+[1]:https://github.com/suteetoe/qnapsmldev#build-docker-จาก-code
+[2]:https://github.com/suteetoe/qnapsmldev#build-แล้วเอาไป-run-ใน-linux
 
 ### Build Docker จาก Code
 
