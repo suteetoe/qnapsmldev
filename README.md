@@ -72,7 +72,7 @@ docker run --name <ชื่อ Container> -d -p 80:80
 ## PostgreSQL
 
 - Install PostgreSQL Docker Replication
-- [PostgreSQL Docker Backup](#PostgreSQL Docker Backup)
+- [PostgreSQL Docker Backup](#postgresql-docker-backup)
 
 ### PostgreSQL Docker Backup
 
