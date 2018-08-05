@@ -1,6 +1,7 @@
 # SMLDEV
 
 - [Go](#Go)
+- [PostgresSQL]
 - [Service](#service)
 
 ## Go 
@@ -68,6 +69,37 @@ docker run --name <ชื่อ Container> -p <port ข้างนอก>:<Port
 docker run --name <ชื่อ Container> -d -p 80:80
 ```
 
+## PostgreSQL
+
+- Install PostgreSQL Docker Replication
+- [PostgreSQL Docker Backup](#PostgreSQL Docker Backup)
+
+### PostgreSQL Docker Backup
+
+```
+version: '3'
+
+services:
+  postgresql-backup:
+    image: smlsoft/smlpgbackup:10.4
+    restart: always
+    volumes:
+      - ./backups:/var/lib/postgresql/backups
+    environment:
+      - BACKUPHOUR=22
+      - BACKUPMINUTE=45
+      - PGHOST=sml_postgresql
+```
+Option
+
+Env | Description
+--- | ---
+BACKUPHOUR | เวลาที่จะทำการสำรองข้อมูล 0-23) 
+BACKUPMINUTE | ระบุนาที
+PGHOST | ชื่อ Server เก็บข้อมูล (postgresql)
+PGPORT | Port
+PGUSER | รหัสผู้ใช้
+PGPASS | รหัสผ่าน
 
 ## Service
 
