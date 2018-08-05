@@ -90,7 +90,7 @@ services:
       - BACKUPMINUTE=45
       - PGHOST=sml_postgresql
 ```
-Option
+**Option**
 
 Env | Description
 --- | ---
