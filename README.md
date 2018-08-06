@@ -104,7 +104,7 @@ PGPASS | รหัสผ่าน
 
 ## install 
 
-- [SMLAccountPOS v 1.2.22] (http://qnapsmldev.myqnapcloud.com:8830/smlinstall/SMLAccountPOSSetup.1.2.22.30866.msi)
+- [SMLAccountPOS v 1.2.22](http://qnapsmldev.myqnapcloud.com:8830/smlinstall/SMLAccountPOSSetup.1.2.22.30866.msi)
 
 ## Service
 
