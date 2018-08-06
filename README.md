@@ -3,6 +3,7 @@
 - [Go](#Go)
 - [PostgresSQL](#postgresql)
 - [Service](#service)
+- [Install](#install)
 
 ## Go 
 
@@ -100,6 +101,10 @@ PGHOST | ชื่อ Server เก็บข้อมูล (postgresql)
 PGPORT | Port
 PGUSER | รหัสผู้ใช้
 PGPASS | รหัสผ่าน
+
+## install 
+
+- [SMLAccountPOS v 1.2.22] (http://qnapsmldev.myqnapcloud.com:8830/smlinstall/SMLAccountPOSSetup.1.2.22.30866.msi)
 
 ## Service
 
