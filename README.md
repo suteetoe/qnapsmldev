@@ -71,9 +71,58 @@ docker run --name <ชื่อ Container> -d -p 80:80
 ```
 
 ## PostgreSQL
-
-- Install PostgreSQL Docker Replication
+- [Postgresql Backup Command](#postgresql-backup-command)
+- [Postgresql Restore Command](#postgresql-restore-command)
+- [Install PostgreSQL Docker Replication](#install-postgresql-with-replication)
 - [PostgreSQL Docker Backup](#postgresql-docker-backup)
+
+### PostgreSQL Backup Command
+```
+pg_dump --host <ip> --port <port> --username "postgres" --format custom --blobs --verbose --file "<backuptofilename>" <databasename>
+```
+
+OR Linux
+
+```
+pg_dump -Fc <databasename> > outputfilename
+```
+
+### PostgreSQL Restore Command
+```
+pg_restore.exe --host <ip> --port <port> --username "postgres" --dbname <database_name> --verbose <backupfile>
+```
+OR Linux
+```
+pg_restore --dbname <database_name> --verbose <backupfile>
+```
+
+### Install PostgreSQL With Replication
+
+```
+version: '3'
+
+services:
+ postgresql-master:
+  image: docker.smldatacenter.com:5443/postgresql:10.4-replication
+  container_name: postgresql_master
+  restart: always
+  environment:
+   - POSTGRES_PASSWORD=<password>
+  volumes:
+   - ./master_data:/var/lib/postgresql/data
+  ports:
+   - 5432:5432
+ postgresql-slave1:
+  image: docker.smldatacenter.com:5443/postgresql:10.4-replication
+  restart: always
+  environment:
+   - POSTGRES_MASTER_SERVICE_HOST=postgresql_master
+   - REPLICATION_ROLE=slave
+  volumes:
+   - ./slave1_data:/var/lib/postgresql/data
+  ports:
+   - 54321:5432
+```
 
 ### PostgreSQL Docker Backup
 
