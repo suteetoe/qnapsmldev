@@ -96,6 +96,23 @@ OR Linux
 pg_restore --dbname <database_name> --verbose <backupfile>
 ```
 
+### Check Size Database & Table
+```
+select t1.datname AS db_name,  
+       pg_size_pretty(pg_database_size(t1.datname)) as db_size
+from pg_database t1
+order by pg_database_size(t1.datname) desc;
+
+
+
+SELECT
+   relname as "Table",
+   pg_size_pretty(pg_total_relation_size(relid)) As "Size",
+   pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid)) as "External Size"
+   FROM pg_catalog.pg_statio_user_tables ORDER BY pg_total_relation_size(relid) DESC;
+```
+
+
 ### Install PostgreSQL With Replication
 
 ```
