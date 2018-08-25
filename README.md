@@ -168,6 +168,12 @@ PGPORT | Port
 PGUSER | รหัสผู้ใช้
 PGPASS | รหัสผ่าน
 
+
+### PostgreSQL Slave Config
+```
+<slaveserver>dev.smlsoft.com</slaveserver><slaveport>54329</slaveport><slaveuser>postgres</slaveuser><slavepassword>sml</slavepassword>
+```
+
 ## install 
 
 - [SMLAccountPOS v 1.2.22](http://qnapsmldev.myqnapcloud.com:8830/smlinstall/SMLAccountPOSSetup.1.2.22.30866.msi)
@@ -177,3 +183,6 @@ PGPASS | รหัสผ่าน
 - [SMLJavaWebService](http://qnapsmldev.myqnapcloud.com:8830/service/SMLJavaWebService.war)
 
 - W10(http://qnapsmldev.myqnapcloud.com:8830/dl/17134.1.180410-1804.RS4_RELEASE_CLIENTBUSINESS_VOL_X64FRE_EN-US.iso)
+
+
+
