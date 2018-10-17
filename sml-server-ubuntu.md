@@ -124,3 +124,6 @@ networks:
 $ sudo docker-compose up -d
 ```
 
+
+### Tuneing
+`Postgrseql Path : /data/sml/postgresql/data/postgresql.conf`
