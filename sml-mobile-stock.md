@@ -17,8 +17,7 @@ version: '3'
 
 services:
   smlmobile:
-  #image: smlsoft/mobilestock
-  build: ./mobilestock-2.3
+  image: smlsoft/mobilestock:2.3
   container_name: sml_mobilestock
   expose:
    - 80
