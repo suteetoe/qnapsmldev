@@ -19,6 +19,7 @@ services:
   smlmobile:
   image: smlsoft/mobilestock:2.3
   container_name: sml_mobilestock
+  restart: always
   expose:
    - 80
   ports:
