@@ -80,6 +80,7 @@ version: '3'
 services:
   smljavawebservice:
     image: smlsoft/smljavawebservice
+    container_name: sml_webservice
     restart: always
     ports:
       - 8080:8080
@@ -101,6 +102,7 @@ services:
       - backend
   postgrsql_backup:
     image: smlsoft/smlpgbackup:10.4
+    container_name: sml_postgresql_autobackup
     restart: always
     volumes:
       - ./backups:/var/lib/postgresql/backups
