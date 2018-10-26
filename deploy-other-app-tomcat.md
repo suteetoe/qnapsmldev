@@ -1,17 +1,17 @@
 
 # How To Deploy Other .war in SMLJavawebService Docker
 
-1. Create Image File
+## 1. Create Image File
 ```
 $ cd /data/sml
 $ sudo mkdir ./smlwebservice && ./smlwebservice/war
 $ cd smlwebservice
 ```
 
-2. Download War ที่จะเพิ่ม มาใส่ ใน /data/sml/smlwebservice/war/
+## 2. Download War ที่จะเพิ่ม มาใส่ ใน /data/sml/smlwebservice/war/
 
 
-3. สร้าง Dockerfile
+## 3. สร้าง Dockerfile
 
 ```
 nano Dockerfile
@@ -24,13 +24,13 @@ FROM smlsoft/smljavawebservice
 ADD war/. $CATALINA_HOME/webapps/
 ```
 
-4. Build Docker Image
+## 4. Build Docker Image
 
 ```
 $ sudo docker build -t custom-smljavawebservice .
 ```
 
-5. แก้ไข docker-compose.yml ใน /data/sml/docker-compose.yml
+## 5. แก้ไข docker-compose.yml ใน /data/sml/docker-compose.yml
 
 ```
 $ sudo nano /data/sml/docker-compose.yml
