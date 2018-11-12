@@ -89,7 +89,7 @@ services:
     networks:
       - backend
   postgresql:
-    image: smlsoft/smlpostgres:10.4-thai
+    image: smlsoft/smlpostgres:11-thai
     container_name: sml_postgresql
     restart: always
     environment:
@@ -101,7 +101,7 @@ services:
     networks:
       - backend
   postgrsql_backup:
-    image: smlsoft/smlpgbackup:10.4
+    image: smlsoft/smlpgbackup:11
     container_name: sml_postgresql_autobackup
     restart: always
     volumes:
