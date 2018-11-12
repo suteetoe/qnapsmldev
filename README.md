@@ -73,6 +73,7 @@ docker run --name <ชื่อ Container> -d -p 80:80
 ## PostgreSQL
 - [Postgresql Backup Command](#postgresql-backup-command)
 - [Postgresql Restore Command](#postgresql-restore-command)
+- [Move Database Script](#move-database)
 - [Install PostgreSQL Docker Replication](#install-postgresql-with-replication)
 - [PostgreSQL Docker Backup](#postgresql-docker-backup)
 
@@ -111,7 +112,10 @@ SELECT
    pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid)) as "External Size"
    FROM pg_catalog.pg_statio_user_tables ORDER BY pg_total_relation_size(relid) DESC;
 ```
-
+### Move Database
+```
+pg_dump -C -h 192.168.2.98 -U postgres toc | psql -h localhost -U postgres toc
+```
 
 ### Install PostgreSQL With Replication
 
