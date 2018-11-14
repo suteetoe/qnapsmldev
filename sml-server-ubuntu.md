@@ -166,7 +166,7 @@ networks:
 version: '3'
 
 services:
-  smlstockprocess:
+ smlstockprocess:
   image: smlsoft/smlstockprocess:0.0.6
   restart: always
   ports:
@@ -188,5 +188,21 @@ networks:
       
 ```
 
+ทำการเพิ่ม 
+
 ```
+$ cd <tomcat_temp>
+$ nano smlstockprocess.cfg
+```
+
+
+```
+# rabbitmq config
+type = rabbitmq
+server = rabbitmq
+port = 5672
+user = admin
+password = SECRET
+channel = smlstockprocess-queue
+
 ```
