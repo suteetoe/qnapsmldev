@@ -168,6 +168,7 @@ version: '3'
 services:
  smlstockprocess:
   image: smlsoft/smlstockprocess:0.0.6
+  container_name: sml_stockprocess
   restart: always
   ports:
    - 8585:8585
