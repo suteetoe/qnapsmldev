@@ -47,3 +47,8 @@ labels:
    - "traefik.frontend.rule=PathPrefix:/SMLJavaWebService"
 
 ```
+
+More Config 
+```
+https://github.com/containous/traefik/issues/2806
+```
