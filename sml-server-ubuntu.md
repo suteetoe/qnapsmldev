@@ -141,6 +141,8 @@ version: '3'
 services: 
   rabbit_mq:
     image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
     ports:
      - 15672:15672
      - 5672:5672
@@ -156,4 +158,28 @@ networks:
   backend:
     external:
       name: sml_service_network
+```
+
+### 4.2 SMLStockProcess
+
+```
+version: '3'
+
+services:
+  smlstockprocess:
+  image: smlsoft/smlstockprocess:0.0.6
+      ports:
+        - 8585:8585
+      volumes:
+        - /data/sml/tomcat/temp:/temp
+      environment:
+        - SML_TEMPDIR=/temp
+        - SML_PROCESS_QUEUE=rabbitmq
+        - SPRING_RABBITMQ_HOST=rabbitmq
+        - SPRING_RABBITMQ_USERNAME=admin
+        - SPRING_RABBITMQ_PASSWORD=SECRET
+
+```
+
+```
 ```
