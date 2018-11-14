@@ -32,3 +32,18 @@ networks:
      name: sml_service_network
      
 ```
+
+## SMLJavaWebService Config
+
+
+Append in Docker
+```
+labels:
+   - "traefik.enable=true"
+   - "traefik.docker.network=sml_service_network"
+   - "traefik.frontend.rule=PathPrefixStrip:/SMLJavaWebService/"
+   - "traefik.frontend.redirect.regex=^(.*)/SMLJavaWebService$$"
+   - "traefik.frontend.redirect.replacement=$$1/SMLJavaWebService/"
+   - "traefik.frontend.rule=PathPrefix:/SMLJavaWebService"
+
+```
