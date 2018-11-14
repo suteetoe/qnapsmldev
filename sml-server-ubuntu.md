@@ -2,6 +2,7 @@
 1. Install Docker
 2. Install Docker-compose
 3. Create SML Compose File
+4. Install Other Service
 
 ### Step 1 Install Docker
 
@@ -129,3 +130,30 @@ $ sudo docker-compose up -d
 
 ### Tuneing
 `Postgrseql Path : /data/sml/postgresql/data/postgresql.conf`
+
+### 4. Install Other Service
+
+#### 4.1 Install RabbitMQ
+
+```
+version: '3'
+
+services: 
+  rabbit_mq:
+    image: rabbitmq:3-management
+    ports:
+     - 15672:15672
+     - 5672:5672
+    expose:
+     - 5672
+     - 15672
+    environment:
+     - RABBITMQ_DEFAULT_USER=admin
+     - RABBITMQ_DEFAULT_PASS=SECRET
+    networks:
+     - backend
+networks:
+  backend:
+    external:
+      name: sml_service_network
+```
