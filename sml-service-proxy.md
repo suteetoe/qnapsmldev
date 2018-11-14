@@ -4,8 +4,8 @@
 
 Download Configfile
 ```
-$ wget  
-$ mv 
+$ sudo wget https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml  
+$ sudo mv traefik.sample.toml  traefik.toml 
 ```
 
 Install Traefik With Docker-compose
