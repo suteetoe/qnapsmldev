@@ -189,4 +189,5 @@ PGPASS | รหัสผ่าน
 - W10(http://qnapsmldev.myqnapcloud.com:8830/dl/17134.1.180410-1804.RS4_RELEASE_CLIENTBUSINESS_VOL_X64FRE_EN-US.iso)
 
 
-
+## My QNAP
+qnapsmldev.myqnapcloud.com
