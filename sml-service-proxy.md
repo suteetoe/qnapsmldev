@@ -46,9 +46,10 @@ labels:
    - "traefik.frontend.redirect.replacement=$$1/SMLJavaWebService/"
    - "traefik.frontend.rule=PathPrefix:/SMLJavaWebService"
 
- - "traefik.backend=smlclouddcweb"
-      - "traefik.docker.network=frontend_networks"
-      - "traefik.frontend.rule=Host:smlsupport.smldatacenter.com"
+   - "traefik.backend=smlclouddcweb"
+   - "traefik.docker.network=frontend_networks"
+   # filter With Hostname
+   - "traefik.frontend.rule=Host:smlsupport.smldatacenter.com"
 ```
 
 More Config 
