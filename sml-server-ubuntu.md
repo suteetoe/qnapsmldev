@@ -111,6 +111,14 @@ services:
       - BACKUPHOUR=23
       - BACKUPMINUTE=0
       - PGHOST=sml_postgresql
+      
+      ## กรณี หลัง Backup ให้ FTP
+      # - FTPUSE=lftp
+      # - FTP_HOST=ip.server
+      # - FTP_USER=ftp.user
+      # - FTP_PASSWORD=ftp.password
+      # - FTP_PATH=/path/to/save  
+      
     networks:
       - backend
       
