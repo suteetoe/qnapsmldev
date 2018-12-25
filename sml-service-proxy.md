@@ -50,6 +50,10 @@ labels:
    - "traefik.docker.network=frontend_networks"
    # filter With Hostname
    - "traefik.frontend.rule=Host:smlsupport.smldatacenter.com"
+   
+   # remove /api/ in backend 
+   - "traefik.frontend.rule=Host:crm.coconutpos.com;PathPrefix:/api/;PathPrefixStrip:/api/"
+
 ```
 
 More Config 
