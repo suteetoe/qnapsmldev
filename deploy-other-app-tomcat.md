@@ -4,7 +4,8 @@
 ## 1. Create Image File
 ```
 $ cd /data/sml
-$ sudo mkdir ./smlwebservice && ./smlwebservice/war
+$ sudo mkdir ./smlwebservice
+$ sudo mkdir ./smlwebservice/war
 $ cd smlwebservice
 ```
 
