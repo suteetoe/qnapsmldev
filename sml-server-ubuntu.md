@@ -59,6 +59,26 @@ $ docker-compose --version
 docker-compose version 1.17.0, build 1719ceb
 ```
 
+### ปรับตั้งค่า Docker
+```
+$ mkdir /home/docker
+
+$ sudo nano /etc/docker/daemon.json
+
+```
+
+ในไฟล์ ใส่ข้อความข้างล่างลงไป
+
+```
+{
+    "insecure-registries" : ["docker.smldatacenter.com"],
+    "graph" : "/home/docker"
+}
+```
+
+ทำการ Save โดยกด Ctrl + X 
+ตอบ y 
+
 ### 3.  ลงแบบ docker compose
 
 - รันคำสั่งเพื่อสร้าง Folders
