@@ -72,7 +72,12 @@ $ sudo nano /etc/docker/daemon.json
 ```
 {
     "insecure-registries" : ["docker.smldatacenter.com"],
-    "graph" : "/home/docker"
+    "graph" : "/home/docker",
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "10"
+    }
 }
 ```
 
