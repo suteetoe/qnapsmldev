@@ -84,6 +84,12 @@ $ sudo nano /etc/docker/daemon.json
 ทำการ Save โดยกด Ctrl + X 
 ตอบ y 
 
+restart docker 
+
+```
+sudo systemctl restart docker
+```
+
 ### 3.  ลงแบบ docker compose
 
 - รันคำสั่งเพื่อสร้าง Folders
