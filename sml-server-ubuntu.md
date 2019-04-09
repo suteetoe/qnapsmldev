@@ -25,7 +25,7 @@ $ sudo apt-get update
 - สั่งติดตั้ง Docker CE
 
 ```
-$ sudo apt-get install docker-ce
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 - ตรวจสอบการติดตั้ง
