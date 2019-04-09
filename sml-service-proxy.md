@@ -2,10 +2,30 @@
 
 ## Traefik Compose
 
-Download Configfile
+Download Configfile (NOT PASS)
 ```
 $ sudo wget https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml  
 $ sudo mv traefik.sample.toml  traefik.toml 
+```
+
+Add Config
+
+```
+$ sudo nano traefik.toml
+```
+
+```
+################################################################
+# API and dashboard configuration
+################################################################
+[api]
+################################################################
+# Docker configuration backend
+################################################################
+[docker]
+domain = "docker.local"
+watch = true
+
 ```
 
 Install Traefik With Docker-compose
