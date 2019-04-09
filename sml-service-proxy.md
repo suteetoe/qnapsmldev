@@ -61,3 +61,8 @@ More Config
 ```
 https://github.com/containous/traefik/issues/2806
 ```
+
+## enable logs 
+```
+command: --logLevel=DEBUG
+```
