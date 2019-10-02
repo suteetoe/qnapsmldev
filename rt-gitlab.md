@@ -37,3 +37,8 @@ git branch --set-upstream-to=gitscg/smldev
 ```
 git merge origin/master gitscg/smldev --allow-unrelated-histories
 ```
+
+### 7. Push new remote branch
+```
+git push gitscg HEAD:smldev
+```
