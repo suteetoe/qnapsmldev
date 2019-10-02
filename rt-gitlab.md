@@ -21,7 +21,8 @@ git remote -v
 #### 4. fetch branch from remote
 
 ```
-git fetch <remote_branch> <remote_branch> 
+# git fetch <remote_branch> <remote_branch> 
+git fetch <remote_branch> smldev 
 ```
 
 #### 5. set upstream branch to remote `git branch --set-upstream-to=<remote_name>/<branch>`
