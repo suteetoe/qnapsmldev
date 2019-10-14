@@ -35,7 +35,7 @@ version: '3'
 
 services:
   traefik_proxy:
-    image: traefik
+    image: traefik:1.7.18
     container_name: traefik_proxy
     restart: always
     ports:
