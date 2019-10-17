@@ -149,6 +149,9 @@ services:
       # - FTP_USER=ftp.user
       # - FTP_PASSWORD=ftp.password
       # - FTP_PATH=/path/to/save  
+      # - PGUSER=postgres
+      # - PGPASS=sml
+      # - PGPORT=5432
       
     networks:
       - backend
