@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+ smlmis:
+  container_name: sml_mis
+  restart: always
+  image: smlsoft/smlmis3
+  expose:
+   - 8080
+  volumes:
+   - /data/sml/tomcat/temp:/usr/local/tomcat/temp
+  networks:
+   - backend
+  labels:
+   - "traefik.enable=true"
+   - "traefik.docker.network=sml_service_network"
+   - "traefik.frontend.rule=PathPrefix:/MIS3"
+networks:
+ backend:
+  external:
+   name: sml_service_network
+
