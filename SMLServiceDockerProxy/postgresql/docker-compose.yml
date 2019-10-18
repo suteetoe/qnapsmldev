@@ -1,0 +1,43 @@
+version: '3'
+
+services:  
+  postgresql:
+    image: smlsoft/smlpostgres:11-thai
+    container_name: sml_postgresql
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: sml
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    networks:
+      - backend
+  postgrsql_backup:
+    image: smlsoft/smlpgbackup:11
+    container_name: sml_postgresql_autobackup
+    restart: always
+    volumes:
+      - ./backups:/var/lib/postgresql/backups
+    environment:
+      - BACKUPHOUR=23
+      - BACKUPMINUTE=0
+      - PGHOST=sml_postgresql
+      
+      ## กรณี หลัง Backup ให้ FTP
+      # - FTPUSE=lftp
+      # - FTP_HOST=ip.server
+      # - FTP_USER=ftp.user
+      # - FTP_PASSWORD=ftp.password
+      # - FTP_PATH=/path/to/save  
+      # - PGUSER=postgres
+      # - PGPASS=sml
+      # - PGPORT=5432
+      
+    networks:
+      - backend
+      
+networks:
+  backend:
+    external:
+      name: sml_service_network
