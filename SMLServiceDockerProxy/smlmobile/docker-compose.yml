@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+ smlmobile:
+  container_name: sml_mobilestock
+  image: smlsoft/mobilestock:2.3-relative
+  restart: always
+  expose:
+   - 80
+  networks:
+    - backend
+  environment:
+   - DB_HOST=sml_postgresql
+   - DB_PORT=5432
+   - DB_USER=postgres
+   - DB_PASSWORD=sml
+  labels:
+   - "traefik.enable=true"
+   - "traefik.docker.network=sml_service_network"
+   - "traefik.frontend.rule=PathPrefix:/mobilestock;PathPrefixStrip:/mobilestock/"
+networks:
+ backend:
+  external:
+   name: sml_service_network
