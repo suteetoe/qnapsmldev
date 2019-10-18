@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+ smlmobilesalesservice:
+  container_name: sml_mobilesaleservice
+  restart: always
+  image: smlsoft/mobilesaleservice:3
+  expose:
+   - 8080
+  volumes:
+   - /data/sml/tomcat/temp:/usr/local/tomcat/temp
+  networks:
+   - backend
+  labels:
+   - "traefik.enable=true"
+   - "traefik.docker.network=sml_service_network"
+   - "traefik.frontend.rule=PathPrefix:/SMLJavaRESTService3"
+
+networks:
+ backend:
+  external:
+   name: sml_service_network
+
