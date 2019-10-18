@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  smlstockprocess:
+    container_name: sml_stockprocess
+    image: smlsoft/smlstockprocess:latest
+    ports:
+      - 8585:8585
+    volumes:
+      - ../tomcat/temp:/temp
+    environment:
+      - SML_TEMPDIR=/temp
+      - SML_PROCESS_QUEUE=rabbitmq
+      - SPRING_RABBITMQ_HOST=rabbitmq_smlprocess
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=admin
+      - SPRING_RABBITMQ_PASSWORD=adminsml
+
+  rabbtitmq:
+    container_name: rabbitmq_smlprocess
+    image: rabbitmq:management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=adminsml
+
+networks:
+  default:
+    external:
+      name: sml_service_network
