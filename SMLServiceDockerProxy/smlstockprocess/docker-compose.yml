@@ -26,7 +26,12 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=adminsml
-
+    labels:
+      - "traefik.backend=rabbtitmq"
+      - "traefik.frontend.rule=PathPrefixStrip:/rabbitmq;PathPrefix:/rabbitmq"
+      - "traefik.enable=true"
+      - "traefik.port=15672"
+      - "traefik.protocol=http"
 networks:
   default:
     external:
