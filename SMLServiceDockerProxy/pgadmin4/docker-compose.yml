@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: "pgadmin4"
+    environment:
+      - "PGADMIN_DEFAULT_EMAIL=<email@domain.com>"
+      - "PGADMIN_DEFAULT_PASSWORD=<secret>"
+      - "SCRIPT_NAME=/pgadmin4"
+    networks:
+      - backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=sml_service_network"
+      - "traefik.frontend.rule=PathPrefix:/pgadmin4"
+networks:
+  backend:
+    external:
+      name: sml_service_network
