@@ -13,10 +13,10 @@ in smlstockprocess.cfg
 
 # rabbitmq config
 type = rabbitmq
-server = cloud.smldatacenter.com
+server = rabbitmq_smlprocess
 port = 5672
 user = admin
-password = sml
+password = adminsml
 channel = smlstockprocess-queue
 
 ```
