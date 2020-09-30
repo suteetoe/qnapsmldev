@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  smlrestservicedocs:
+    image: docker.smldatacenter.com/smlrestservicedocs:3.0
+    expose:
+     - 80
+    networks:
+     - backend
+    labels:
+#      - "traefik.enable=true"
+#      - "traefik.frontend.rule=Host:smldemo.smlsoft.com;PathPrefix:/docs/smlrestservice/;PathPrefixStrip:/docs/smlrestservice/"
+#      # - "traefik.frontend.rule=Host:smldemo.smlsoft.com"
+      - "traefik.http.routers.restservice-docs.rule=(Host(`smldemo.smlsoft.com`) && PathPrefix(`/docs/smlrestservice`))"
+      - "traefik.http.routers.restservice-docs.middlewares=smlrestdoc-stripprefix"
+      - "traefik.http.middlewares.smlrestdoc-stripprefix.stripprefix.prefixes=/docs/smlrestservice"
+networks:
+  backend:
+    external:
+      name: sml_service_network
