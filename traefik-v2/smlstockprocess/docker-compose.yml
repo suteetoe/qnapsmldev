@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  smlstockprocess:
+    container_name: sml_stockprocess
+    image: smlsoft/smlstockprocess:latest
+    restart: always
+    ports:
+      - 8585:8585
+    volumes:
+      - ../tomcat/temp:/temp
+    environment:
+      - SML_TEMPDIR=/temp
+      - SML_PROCESS_QUEUE=rabbitmq
+      - SPRING_RABBITMQ_HOST=rabbitmq_smlprocess
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=admin
+      - SPRING_RABBITMQ_PASSWORD=adminsml
+
+  rabbtitmq:
+    container_name: rabbitmq_smlprocess
+    image: rabbitmq:management
+    restart: always
+    expose:
+      - 5672
+      - 15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=adminsml
+    labels:
+      #- "traefik.backend=rabbtitmq"
+      #- "traefik.frontend.rule=PathPrefixStrip:/rabbitmq;PathPrefix:/rabbitmq"
+      #- "traefik.enable=true"
+      #- "traefik.port=15672"
+      #- "traefik.protocol=http"
+
+      - "traefik.http.services.rabbitmq.loadbalancer.server.port=15672"
+      - "traefik.http.routers.rabbitmq.rule=(Host(`smldemo.smlsoft.com`) && PathPrefix(`/rabbitmq`))"
+      - "traefik.http.routers.rabbitmq.middlewares=rabbitmq-middleware-stripprefix"
+      - "traefik.http.middlewares.rabbitmq-middleware-stripprefix.stripprefix.prefixes=/rabbitmq"
+networks:
+  default:
+    external:
+      name: sml_service_network

@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  smlcloudservice:
+    image: smlsoft/smlcloudservice:2.1
+    restart: always
+    expose:
+      - 8080
+    volumes:
+      - ../tomcat/temp:/usr/local/tomcat/temp
+    networks:
+      - backend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://toe_toe_db_1:5432/smlcloudservice
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=sml
+    labels:
+      - "traefik.http.routers.smlcloud-service.rule=(Host(`smldemo.smlsoft.com`) && PathPrefix(`/SMLCloudService/`))"
+
+  smlcloudmanage:
+    image: smlsoft/smlcloudservice:2.0-manage
+    restart: always
+    expose:
+      - 8080
+    volumes:
+      - ../tomcat/temp:/usr/local/tomcat/temp
+    networks:
+      - backend
+    labels:
+      - "traefik.http.routers.smlcloud-manage.rule=(Host(`smldemo.smlsoft.com`) && PathPrefix(`/SMLCloudManage/`))"
+networks:
+  backend:
+    external:
+      name: sml_service_network

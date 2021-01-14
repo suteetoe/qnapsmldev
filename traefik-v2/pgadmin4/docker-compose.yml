@@ -4,8 +4,6 @@ services:
   pgadmin4:
     image: dpage/pgadmin4
     container_name: "pgadmin4"
-    expose:
-      - 5050
     environment:
       - "PGADMIN_DEFAULT_EMAIL=<email@domain.com>"
       - "PGADMIN_DEFAULT_PASSWORD=<secret>"
@@ -13,9 +11,8 @@ services:
     networks:
       - backend
     labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=sml_service_network"
-      - "traefik.frontend.rule=PathPrefix:/pgadmin4"
+      - "traefik.http.routers.pgadmin4.rule=(Host(`smldemo.smlsoft.com`) && PathPrefix(`/pgadmin4`))"
+
 networks:
   backend:
     external:
