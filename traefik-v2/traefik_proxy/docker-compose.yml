@@ -3,6 +3,7 @@ version: '3'
 services:
   traefik:
     image: traefik:v2.3
+    restart: always
     command:
       - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
