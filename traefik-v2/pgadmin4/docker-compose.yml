@@ -11,7 +11,8 @@ services:
     networks:
       - backend
     labels:
-      - "traefik.http.routers.pgadmin4.rule=(Host(`smldemo.smlsoft.com`) && PathPrefix(`/pgadmin4`))"
+      # - "traefik.http.routers.pgadmin4.rule=(Host(`host.com`) && PathPrefix(`/pgadmin4`))"
+      - "traefik.http.routers.pgadmin4.rule=(PathPrefix(`/pgadmin4`))"
 
 networks:
   backend:
