@@ -124,6 +124,7 @@ services:
     image: smlsoft/smlpostgres:11-thai
     container_name: sml_postgresql
     restart: always
+    shm_size: 1g
     environment:
       POSTGRES_PASSWORD: sml
     ports:
